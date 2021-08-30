@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<title>Hello World Jsf-Jpa-Ejb-Wildfly Tutorial</title>
+</h:head>
+<h:body>
+	<h1 align="center">Hello in second View</h1>
+	<br />
+	<div align="center">
+	<h:form>
+		<h:outputLabel for="input" value="Input" />
+		<h:inputText id="input" value="#{messageBean.text}" />
+		<h:message id="input_m" for="input" />
+		<h:commandButton value="Submit" action="#{messageBean.submit}">
+			<f:ajax execute="@form" render=":table" />
+		</h:commandButton>
+		</h:form>
+	</div>
+	<br />
+	<div align="center">
+		<h:dataTable id="table" value="#{messageBean.allMessages}" var="message">
+			<h:column>#{message.id}</h:column>
+			<h:column>#{message.text}</h:column>
+		</h:dataTable>
+	</div>
+</h:body>
+</html>
